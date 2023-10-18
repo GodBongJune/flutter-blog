@@ -10,7 +10,7 @@ class PostRepository {
   Future<ResponseDTO> fetchPostList(String jwt) async {
     try {
       // 1.통신
-      final response = await dio.post("/post",
+      final response = await dio.get("/post",
           options: Options(headers: {"Authorization": "${jwt}"}));
 
       // 2.ResponseDTO 파싱
