@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_blog/_core/constants/http.dart';
 import 'package:flutter_blog/data/dto/response_dto.dart';
 import 'package:flutter_blog/data/dto/user_request.dart';
@@ -20,7 +21,8 @@ class UserRepository {
 
   Future<ResponseDTO> fetchLogin(LoginReqDTO requestDTO) async {
     try {
-      final response = await dio.post("/login", data: requestDTO.toJson());
+      Response<dynamic> response =
+          await dio.post<dynamic>("/login", data: requestDTO.toJson());
 
       ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
       responseDTO.data = User.fromJson(responseDTO.data);

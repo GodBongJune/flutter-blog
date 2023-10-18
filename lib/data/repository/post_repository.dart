@@ -42,8 +42,7 @@ class PostRepository {
       ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
 
       // 3.ResponseDTO의 data 파싱
-      List<dynamic> mapList = responseDTO.data as List<dynamic>;
-      Post post = Post.fromJson(responseDTO.data)
+      Post post = Post.fromJson(responseDTO.data);
 
       // 4.파싱된 데이터를 다시 공통 DTO로 덮어씌우기
       responseDTO.data = post;
